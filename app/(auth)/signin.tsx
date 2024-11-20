@@ -6,7 +6,7 @@ import { images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
 
-const SignUp = () => {
+const SignIn = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -43,25 +43,13 @@ const SignUp = () => {
 
           {/* Email Field */}
           <FormField
-            title="User Name"
-            value={form.username}
-            handleChangeText={(e) =>
-              setForm({
-                ...form,
-                username: e,
-              })
-            }
-            otherStyle="mt-7"
-            placeholder='User Name'
-          />
-          <FormField
             title="Email"
             value={form.email}
             handleChangeText={(e) =>
-              setForm({
-                ...form,
+              setForm((prevForm) => ({
+                ...prevForm,
                 email: e,
-              })
+              }))
             }
             otherStyle="mt-7"
             keyboardType="email-address"
@@ -73,10 +61,10 @@ const SignUp = () => {
             title="Password"
             value={form.password}
             handleChangeText={(e) =>
-              setForm({
-                ...form,
+              setForm((prevForm) => ({
+                ...prevForm,
                 password: e,
-              })
+              }))
             }
             otherStyle="mt-7"
             placeholder="Enter your password"
@@ -84,15 +72,24 @@ const SignUp = () => {
 
           {/* Submit Button */}
           <CustomButton
-            title="Sign up"
+            title="Sign in"
             handlepress={submit}
             containerStyles="mt-7 w-full"
             isLoading={isSubmitting}
           />
         </View>
+
+        <View className="justify-center pt-5 flex-row gap-2">
+            <Text className="text-lg text-gray-100 font-pregular">
+              Don't have an account?
+            </Text>
+            <Link href="/signup" className="text-lg font-psemibold text-secondary">
+              Sign Up
+            </Link>
+          </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default SignUp;
+export default SignIn;
