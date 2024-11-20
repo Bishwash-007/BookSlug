@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const explore = () => {
+const AuthLayout = () => {
   return (
     <View>
-      <Text>explore</Text>
+      <Text>AuthLayout</Text>
     </View>
   )
 }
 
-export default explore
+export default AuthLayout
